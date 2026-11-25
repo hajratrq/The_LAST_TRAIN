@@ -17,13 +17,13 @@ bool saveGameStateToFile(const char* filename,
                             return 0;
                           else
                            {
-                            file<<"Player's current floor is : "<<playerFloor<<endl;
-                            file<<"Player's current room is : "<<playerRoom<<endl;
-                            file<<"Player's current energy is : "<<energy<<endl;
-                            file<<"Current time is : "<<time<<endl;
-                            file<<"Player's current scores are : "<<score<<endl;
-                            file<<"Player's current inventory count is : "<<inventoryCount<<endl;
-                            file<<"Player's left emergency trips are : "<<emergencyTripsLeft<<endl;
+                            file<<playerFloor<<endl;
+                            file<<playerRoom<<endl;
+                            file<<energy<<endl;
+                            file<<time<<endl;
+                            file<<score<<endl;
+                            file<<inventoryCount<<endl;
+                            file<<emergencyTripsLeft<<endl;
                              for(int i=0 ; i<inventoryCount ; i++)
                              {
                               file<<inventory[i]<<endl;
@@ -65,7 +65,43 @@ bool loadGameStateFromFile(const char* filename,
                            char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM],
                            int entityCounts[NUM_FLOORS][ROOMS_PER_FLOOR])
                            {
+                             ifstream file(filename);
+                             if (!file)
+                              return 0;
+                             file>>playerFloor;
+                             file>>playerRoom;
+                             file>>energy;
+                             file>>time;
+                             file>>score;
+                             file>>inventoryCount;
 
+                             file>>emergencyTripsLeft;
+                              for(int i=0 ; i<inventoryCount ; i++)
+                             {
+                              file>>inventory[i];
+                              }
+                               for(int i=0 ; i<NUM_OBJECTIVES ; i++)
+                               {
+                               file>>objectives[i];
+                                 }
+                                  for(int i=0 ; i<NUM_FLOORS ; i++ )
+                              {
+                              for(int j=0 ; j<ROOMS_PER_FLOOR ; j++)
+                               { 
+                             file>>entityCounts[i][j];
+                               }
+                              } 
+                              for(int i=0 ; i<NUM_FLOORS ; i++)
+                              {
+                             for(int j=0 ; j<ROOMS_PER_FLOOR ; j++)
+                             {
+                             for(int k=0 ; k<entityCounts[i][j] ; k++)
+                             {
+                             file>>roomEntities[i][j][k];
+                              }
+                               }
+                               }
+                             
                            }
 
 void writeGameSummaryReport(const char* filename,
