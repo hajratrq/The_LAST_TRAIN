@@ -1,9 +1,9 @@
 #include "util.h"
 #include <iostream>
-using namespace std;
 #include <cstdlib>
 #include <cstring>
 #include <cctype>
+using namespace std;
 // Primitive helper utilities, clamping, and screen control
 int clampInt(int val, int minVal, int maxVal) {
     if (val < minVal) {
