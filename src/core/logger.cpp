@@ -26,7 +26,7 @@ bool saveGameStateToFile(const char* filename,
                             file<<"Player's left emergency trips are : "<<emergencyTripsLeft<<endl;
                              for(int i=0 ; i<inventoryCount ; i++)
                              {
-                              file<<inventory[i];
+                              file<<inventory[i]<<endl;
                               }
                               for(int i=0 ; i<NUM_OBJECTIVES ; i++)
                                {
@@ -54,6 +54,8 @@ bool saveGameStateToFile(const char* filename,
                                }
                                }
                               }
+                            file.close();
+                            return 1;
                            }
 
 bool loadGameStateFromFile(const char* filename,
