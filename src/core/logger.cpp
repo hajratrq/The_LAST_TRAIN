@@ -1,6 +1,7 @@
 #include "logger.h"
 #include "util.h"
 #include<fstream>
+using namespace std;
 
 // File persistence for savegame.txt and game_summary.txt using primitive variables
 bool saveGameStateToFile(const char* filename,
@@ -23,6 +24,10 @@ bool saveGameStateToFile(const char* filename,
                             file<<"Player's current scores are : "<<score<<endl;
                             file<<"Player's current inventory count is : "<<inventoryCount<<endl;
                             file<<"Player's left emergency trips are : "<<emergencyTripsLeft<<endl;
+                             for(int i=0 ; i<inventoryCount ; i++)
+                             {
+                              file<<inventory[i];
+                              }
     
    
                               }
