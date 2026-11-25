@@ -30,7 +30,6 @@ bool saveGameStateToFile(const char* filename,
                               }
                               for(int i=0 ; i<NUM_OBJECTIVES ; i++)
                                {
-                               objectives[i];
                                if(objectives[i]==1)
                                 file<<1<<endl;
                                else
@@ -73,5 +72,22 @@ void writeGameSummaryReport(const char* filename,
                             int score, int remainingEnergy, int remainingTime,
                             const bool objectives[NUM_OBJECTIVES], bool victory)
                             {
-
+                             ofstream file(filename);
+                             if (!file)
+                              return ;
+                             file<<"Final score : "<<score<<endl;
+                             file<<"Remaining Energy : "<<remainingEnergy<<endl;
+                             file<<"Remaining Time : "<<remainingTime<<endl;
+                             for(int i=0 ; i<NUM_OBJECTIVES ; i++)
+                               {
+                               if(objectives[i]==1)
+                                file<<"Completed"<<endl;
+                               else
+                                file<<"Not Completed"<<endl;
+                                 }
+                              if(victory==0)
+                              file<<"You Failed!!"<<endl;
+                              else
+                              file<<"VICTORYYYYY!!!!"<<endl;
+                              file.close();
                             }
