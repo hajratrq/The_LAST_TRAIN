@@ -28,8 +28,15 @@ bool saveGameStateToFile(const char* filename,
                              {
                               file<<inventory[i];
                               }
-    
-   
+                              for(int i=0 ; i<NUM_OBJECTIVES ; i++)
+                               {
+                               objectives[i];
+                               if(objectives[i]==1)
+                                file<<1<<endl;
+                               else
+                                file<<0<<endl;
+                                 }
+                              
                               }
                            }
 
