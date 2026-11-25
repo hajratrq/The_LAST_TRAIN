@@ -11,8 +11,22 @@ bool saveGameStateToFile(const char* filename,
                          const char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM],
                          const int entityCounts[NUM_FLOORS][ROOMS_PER_FLOOR])
                          {
-
-                         }
+                           
+                          if !(file)
+                            return 0;
+                          else
+                           {
+                            file<<"Player's current floor is : "<<playerFloor<<endl;
+                            file<<"Player's current room is : "<<playerRoom<<endl;
+                            file<<"Player's current energy is : "<<energy<<endl;
+                            file<<"Current time is : "<<time<<endl;
+                            file<<"Player's current scores are : "<<score<<endl;
+                            file<<"Player's current inventory count is : "<<inventoryCount<<endl;
+                            file<<"Player's left emergency trips are : "<<emergencyTripsLeft<<endl;
+    
+   
+                              }
+                           }
 
 bool loadGameStateFromFile(const char* filename,
                            int& playerFloor, int& playerRoom,
@@ -29,5 +43,5 @@ void writeGameSummaryReport(const char* filename,
                             int score, int remainingEnergy, int remainingTime,
                             const bool objectives[NUM_OBJECTIVES], bool victory)
                             {
-                                
+
                             }
