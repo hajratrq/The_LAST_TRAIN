@@ -74,7 +74,8 @@ bool loadGameStateFromFile(const char* filename,
                              file>>time;
                              file>>score;
                              file>>inventoryCount;
-
+                             if(inventoryCount>=0 && inventoryCount<=MAX_INVENTORY_CAPACITY)
+                              return 0;
                              file>>emergencyTripsLeft;
                               for(int i=0 ; i<inventoryCount ; i++)
                              {
@@ -89,6 +90,8 @@ bool loadGameStateFromFile(const char* filename,
                               for(int j=0 ; j<ROOMS_PER_FLOOR ; j++)
                                { 
                              file>>entityCounts[i][j];
+                             if(entityCounts>=0 && entityCounts<=MAX_ENTITIES_PER_ROOM)
+                               return 0;
                                }
                               } 
                               for(int i=0 ; i<NUM_FLOORS ; i++)
@@ -101,7 +104,8 @@ bool loadGameStateFromFile(const char* filename,
                               }
                                }
                                }
-                             
+                             file.close();
+                             return 1;
                            }
 
 void writeGameSummaryReport(const char* filename,
