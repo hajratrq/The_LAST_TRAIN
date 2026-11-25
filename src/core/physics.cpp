@@ -32,20 +32,20 @@ bool canTraverse(int targetFloor, int targetRoom, char connType,
                  int emergencyTripsLeft, bool lift2Operational)
                  {
                    if(connType==CONN_DOOR)
-    return true;
+    return 1;
     else if(connType==CONN_WINDOW)
-    return true;
+    return 1;
     else if(connType==CONN_LOCKED_DOOR)
     {
     if(hasItem(inventory,inventoryCount, ENT_MASTER_KEY)==1)
-    return true;
+    return 1;
     else
-    return false;
+    return 0;
     }
     else if(connType==CONN_SOLID_WALL)
-    return false;
+    return 0;
     else 
-    return false;
+    return 0;
                  }
 
 void applyResourceDelta(int& energy, int& time, int deltaEnergy, int deltaTime)
@@ -62,19 +62,19 @@ void applyScoreDelta(int& score, int deltaScore)
  for(int i=0 ; i<inventoryCount ; i++)
   {
     if(inventory[i]==itemSymbol)
-    return true;
+    return 1;
   }
-return false;
+return 0;
 }
 bool addItem(char inventory[MAX_INVENTORY_CAPACITY], int& inventoryCount, char itemSymbol)
 {
     if(inventoryCount==MAX_INVENTORY_CAPACITY)
-    return false;
+    return 0;
     else
     {
     inventory[inventoryCount]=itemSymbol;
     inventoryCount+=1;
-    return true;
+    return 1;
     }
 }
 bool removeItem(char inventory[MAX_INVENTORY_CAPACITY], int& inventoryCount, char itemSymbol)
@@ -88,8 +88,8 @@ bool removeItem(char inventory[MAX_INVENTORY_CAPACITY], int& inventoryCount, cha
                 inventory[j]=inventory[j+1];
             }
             inventoryCount-=1;
-            return true;
+            return 1;
         }
     }
-    return false;
+    return 0;
 }
