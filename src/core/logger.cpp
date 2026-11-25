@@ -11,8 +11,8 @@ bool saveGameStateToFile(const char* filename,
                          const char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM],
                          const int entityCounts[NUM_FLOORS][ROOMS_PER_FLOOR])
                          {
-                          ofstream file(!filename)
-                          if !(file)
+                          ofstream file(filename);
+                          if (!file)
                             return 0;
                           else
                            {
