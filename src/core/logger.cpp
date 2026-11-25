@@ -42,7 +42,17 @@ bool saveGameStateToFile(const char* filename,
                                { 
                              file<<entityCounts[i][j]<<endl;
                                }
-} 
+                              } 
+                              for(int i=0 ; i<NUM_FLOORS ; i++)
+                              {
+                             for(int j=0 ; j<ROOMS_PER_FLOOR ; j++)
+                             {
+                             for(int k=0 ; k<entityCounts[i][j] ; k++)
+                             {
+                             file<<roomEntities[i][j][k]<<endl;
+                              }
+                               }
+                               }
                               }
                            }
 
