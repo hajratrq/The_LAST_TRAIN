@@ -69,7 +69,11 @@ bool loadGameStateFromFile(const char* filename,
                              if (!file)
                               return 0;
                              file>>playerFloor;
+                             if(playerFloor<1 || playerFloor>NUM_FLOORS)
+                              return 0;
                              file>>playerRoom;
+                             if(playerRoom<1 || playerRoom>ROOMS_PER_FLOOR)
+                              return 0;
                              file>>energy;
                              file>>time;
                              file>>score;
