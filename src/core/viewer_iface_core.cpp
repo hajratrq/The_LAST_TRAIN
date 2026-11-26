@@ -41,5 +41,16 @@ void renderAsciiBuilding(int playerFloor, int playerRoom)
 
 }
 void renderObjectivesChecklist(const bool objectives[NUM_OBJECTIVES]){
+    for(int i=0 ; i<NUM_OBJECTIVES ; i++)
+    {
+      if(objectives[i]==1)
+      {
+        cout<<"Objective Completed";
+      }
+      else
+      {
+        cout<<"Objective Not Completed";
+      }
+    }
 
 }
