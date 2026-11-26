@@ -20,13 +20,20 @@ void renderDashboard(int playerFloor, int playerRoom, int energy, int time, int 
                       {
                        cout<<inventory[i]<<" ";
                       }
+                      cout<<endl;
                      }
 
 void renderRoomDetails(int floor, int room,
                        const char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM],
                        int entityCount)
                        {
-
+                        cout<<"Entity Count : "<<entityCount<<endl;
+                        cout<<"Room Entities : ";
+                        for(int i=0 ; i<entityCount ; i++)
+                        {
+                            cout<<roomEntities[floor-1][room-1][i]<<" ";
+                        }
+                        cout<<endl;
                        }
 
 void renderAsciiBuilding(int playerFloor, int playerRoom)
