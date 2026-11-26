@@ -1,6 +1,7 @@
 #include "viewer_iface.h"
 #include "util.h"
 #include<iostream>
+#include<string>
 using namespace std;
 
 // Terminal UI and dashboard rendering using primitive parameters
@@ -51,15 +52,16 @@ void renderAsciiBuilding(int playerFloor, int playerRoom)
   }
 }
 void renderObjectivesChecklist(const bool objectives[NUM_OBJECTIVES]){
+    string objectiveNames[ ] = { "Master Key", "Clue 4" , "Clue 2" , "clue 7" , "Cabinet Unlocked" , "Train Key" , "Fuse Collected" , "Fuse Installed" , "Lift Pass" , "Lift 2 Active" , "Passenger Rescued" , "Cat Carrier" , "Cat Secured" , "Train Prepared" , "Mission Won" , "Mission Failed" };
     for(int i=0 ; i<NUM_OBJECTIVES ; i++)
     {
       if(objectives[i]==1)
       {
-        cout<<"Objective Completed"<<endl;
+        cout<<"[done] "<<objectiveNames[i]<<" "<<endl;
       }
       else
       {
-        cout<<"Objective Not Completed"<<endl;
+        cout<<"[  ] "<<objectiveNames[i]<<" "<<endl;
       }
     }
 
