@@ -38,18 +38,28 @@ void renderRoomDetails(int floor, int room,
 
 void renderAsciiBuilding(int playerFloor, int playerRoom)
 {
-
+  for(int i=1 ; i<=NUM_FLOORS ; i++)
+  {
+    for(int j=1 ; j<=ROOMS_PER_FLOOR ; j++)
+    {
+     if(i==playerFloor && j==playerRoom)
+     cout<<"P"<<" ";
+     else
+     cout<<j<<" ";
+    }
+    cout<<endl;
+  }
 }
 void renderObjectivesChecklist(const bool objectives[NUM_OBJECTIVES]){
     for(int i=0 ; i<NUM_OBJECTIVES ; i++)
     {
       if(objectives[i]==1)
       {
-        cout<<"Objective Completed";
+        cout<<"Objective Completed"<<endl;
       }
       else
       {
-        cout<<"Objective Not Completed";
+        cout<<"Objective Not Completed"<<endl;
       }
     }
 
