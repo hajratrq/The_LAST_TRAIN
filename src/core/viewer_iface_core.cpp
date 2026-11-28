@@ -76,6 +76,11 @@ void renderRoomDetails(int floor, int room,
                         return;
                       }
                         cout<<"Entity Count : "<<entityCount<<endl;
+                        if(entityCount==0)
+                        {
+                          cout<<"No entities in this room";
+                        }
+                        else 
                         cout<<"Room Entities : ";
                         for(int i=0 ; i<entityCount ; i++)
                         {
@@ -86,8 +91,20 @@ void renderRoomDetails(int floor, int room,
 
 void renderAsciiBuilding(int playerFloor, int playerRoom)
 {
+   if(playerFloor<1 || playerFloor>5)
+                      {
+                        cout<<"Invalid floor Number";
+                        return;
+                      }
+  if(playerRoom<1 || playerRoom>4)
+                      {
+                        cout<<"Invalid room Number";
+                        return;
+                      } 
+   cout<<"         Rooms"<<endl;                           
   for(int i=NUM_FLOORS ; i>=1 ; i--)
   {
+    cout<<"Floor "<<i<<" : ";
     for(int j=1 ; j<=ROOMS_PER_FLOOR ; j++)
     {
      if(i==playerFloor && j==playerRoom)
