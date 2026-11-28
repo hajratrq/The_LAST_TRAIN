@@ -9,13 +9,45 @@ void renderDashboard(int playerFloor, int playerRoom, int energy, int time, int 
                      const char inventory[MAX_INVENTORY_CAPACITY], int inventoryCount,
                      int emergencyTripsLeft)
                      {
+                      printHeader("Player Dashboard");
+                      if(playerFloor<1 || playerFloor>5)
+                      {
+                        cout<<"Invalid floor Number";
+                        return;
+                      }
                       cout<<"Player's Floor Number : "<<playerFloor<<endl;
+                       if(playerRoom<1 || playerRoom>4)
+                      {
+                        cout<<"Invalid room Number";
+                        return;
+                      }
                       cout<<"Player's Room Number : "<<playerRoom<<endl;
+                       if(energy<0 || energy>MAX_ENERGY)
+                      {
+                        cout<<"Invalid energy";
+                        return;
+                      }
                       cout<<"Energy : "<<energy<<endl;
+                       if(time<0 || time>MAX_TIME)
+                      {
+                        cout<<"Invalid time";
+                        return;
+                      }
                       cout<<"Time : "<<time<<endl;
                       cout<<"Score : "<<score<<endl;
+                       if(inventoryCount>MAX_INVENTORY_CAPACITY || inventoryCount<0)
+                      {
+                        cout<<"Invalid Inventory Count!!!";
+                        return ;
+                      }
                       cout<<"Inventory Count : "<<inventoryCount<<endl;
+                      if(emergencyTripsLeft<0)
+                      {
+                        cout<<"Invalid emergency trips";
+                        return;
+                      }
                       cout<<"Emergency Trips Left : "<<emergencyTripsLeft<<endl;
+                      printHeader("Inventory");
                       cout<<"Inventory : ";
                       for(int i=0 ; i<inventoryCount ; i++)
                       {
@@ -28,6 +60,21 @@ void renderRoomDetails(int floor, int room,
                        const char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM],
                        int entityCount)
                        {
+                        if(floor<1 || floor>5)
+                      {
+                        cout<<"Invalid floor Number";
+                        return;
+                      }
+                       if(room<1 || room>4)
+                      {
+                        cout<<"Invalid room Number";
+                        return;
+                      }
+                      if(entityCount<0 || entityCount>MAX_ENTITIES_PER_ROOM)
+                      {
+                        cout<<"invalid entity count";
+                        return;
+                      }
                         cout<<"Entity Count : "<<entityCount<<endl;
                         cout<<"Room Entities : ";
                         for(int i=0 ; i<entityCount ; i++)
@@ -39,14 +86,14 @@ void renderRoomDetails(int floor, int room,
 
 void renderAsciiBuilding(int playerFloor, int playerRoom)
 {
-  for(int i=1 ; i<=NUM_FLOORS ; i++)
+  for(int i=NUM_FLOORS ; i>=1 ; i--)
   {
     for(int j=1 ; j<=ROOMS_PER_FLOOR ; j++)
     {
      if(i==playerFloor && j==playerRoom)
-     cout<<"P"<<" ";
+      cout<<"P"<<" ";
      else
-     cout<<j<<" ";
+      cout<<j<<" ";
     }
     cout<<endl;
   }
