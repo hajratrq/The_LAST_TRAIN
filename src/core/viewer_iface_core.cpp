@@ -112,13 +112,13 @@ void renderAsciiBuilding(int playerFloor, int playerRoom)
      if(i==playerFloor && j==playerRoom)
       cout<<"P"<<" ";
      else
-      cout<<j<<" ";
+      cout<<"F"<<i<<"-R"<<j<<" ";
     }
     cout<<endl;
   }
 }
 void renderObjectivesChecklist(const bool objectives[NUM_OBJECTIVES]){
-    string objectiveNames[ ] = { "Master Key", "Clue 4" , "Clue 2" , "clue 7" , "Cabinet Unlocked" , "Train Key" , "Fuse Collected" , "Fuse Installed" , "Lift Pass" , "Lift 2 Active" , "Passenger Rescued" , "Cat Carrier" , "Cat Secured" , "Train Prepared" , "Mission Won" , "Mission Failed" };
+    string objectiveNames[ ] = { "Master Key", "Clue 4" , "Clue 2" , "Clue 7" , "Cabinet Unlocked" , "Train Key" , "Fuse Collected" , "Fuse Installed" , "Lift Pass" , "Lift 2 Active" , "Passenger Rescued" , "Cat Carrier" , "Cat Secured" , "Train Prepared" , "Mission Won" , "Mission Failed" };
     for(int i=0 ; i<NUM_OBJECTIVES ; i++)
     {
       if(objectives[i]==1)
