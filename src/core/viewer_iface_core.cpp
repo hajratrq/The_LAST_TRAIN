@@ -81,13 +81,15 @@ void renderRoomDetails(int floor, int room,
                           cout<<"No entities in this room";
                         }
                         else 
+                        {
                         cout<<"Room Entities : ";
                         for(int i=0 ; i<entityCount ; i++)
                         {
                             cout<<roomEntities[floor-1][room-1][i]<<" ";
                         }
-                        cout<<endl;
-                       }
+                      }
+                       cout<<endl;
+                    }
 
 void renderAsciiBuilding(int playerFloor, int playerRoom)
 {
